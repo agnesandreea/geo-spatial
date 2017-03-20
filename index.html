@@ -1,0 +1,53 @@
+</head>
+  <script>
+	function geo-spatial()
+	{
+		var screenHeight=screen.height;
+		document.body.setAttribute("style","width:"+screenHeight+"px");
+		
+	}
+      function initMap() {
+	  
+        var uluru = {lat: 45.9805100, lng: 25.4400400};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 7 ,
+          center: uluru,
+		  mapTypeId: 'hybrid',
+		  zoomControl: true,
+		  scaleControl: true
+        });
+	      
+	map.data.loadGeoJson('https://raw.githubusercontent.com/agnesandreea/trial-for-info-window/gh-pages/cladiri.json')
+	        map.data.setStyle(styleFeature);
+      }
+	  
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwAKS7R35dKSwSyHwTtoRoiKHKbG3OopM&libraries=places&callback=initMap">
+    </script>
+ <style>
+	#map
+	{
+		position:absolute;
+		height:100%;
+		width:100%;
+	}
+	    .controls {
+        margin-top: 10px;
+        border: 1px solid transparent;
+        border-radius: 2px 0 0 2px;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        height: 32px;
+        outline: none;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      }
+    
+    </style>
+  <body onload="geo-spatial()" >
+    <div id="map" >
+    
+	</div>
+	
+  </body>
+</html>
